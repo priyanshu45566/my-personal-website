@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Personal Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      background-color: black;
+      color: white;
+      scroll-behavior: smooth;
+    }
+    .section {
+      display: none;
+      padding: 20px;
+      text-align: center;
+      min-height: 100vh;
+    }
+    .intro {
+      background: url('https://i.imgur.com/NwBlX5g.jpg') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .intro button, nav button, .back-btn {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: darkred;
+    }
+    nav {
+      margin-bottom: 20px;
+    }
+    nav button {
+      margin: 0 10px;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .gallery img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid white;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    p {
+      line-height: 1.6;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Intro Screen -->
+<div class="intro" id="intro">
+  <h1>WELCOME TO MY WEBSITE</h1>
+  <button onclick="enterSite()">ENTER</button>
+</div>
+
+<!-- Home Section -->
+<div class="section" id="home">
+  <nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('gallery')">Gallery</button>
+    <button onclick="showSection('info')">Inform Nation</button>
+  </nav>
+  <h2>Home</h2>
+  <p>Welcome to my world of creativity and hacking knowledge.</p>
+</div>
+
+<!-- Gallery Section -->
+<div class="section" id="gallery">
+  <h2>Hacker Gallery</h2>
+  <div class="gallery">
+    <img src="https://i.imgur.com/4AiXzf8.jpeg" alt="Hacker 1">
+    <img src="https://i.imgur.com/x8pNRVl.jpeg" alt="Hacker 2">
+    <img src="https://i.imgur.com/Dv1G1lv.jpeg" alt="Hacker 3">
+    <img src="https://i.imgur.com/A4QtYZR.jpeg" alt="Hacker 4">
+  </div>
+  <button class="back-btn" onclick="showSection('home')">Back to Home</button>
+</div>
+
+<!-- Inform Nation Section -->
+<div class="section" id="info">
+  <h2>The Reality of Hacking</h2>
+  <p>
+    Hacking is not just about breaking into systems — it's about understanding how technology truly works.<br><br>
+    True hackers are explorers, pushing boundaries and finding hidden paths.<br><br>
+    Cybersecurity and hacking go hand-in-hand today.<br>
+    Skills that once built legends are now critical for protecting privacy.<br><br>
+    Knowledge is power. Respect it. Use it wisely.
+  </p>
+  <button class="back-btn" onclick="showSection('home')">Back to Home</button>
+</div>
+
+<script>
+function enterSite() {
+  document.getElementById('intro').style.display = 'none';
+  document.getElementById('home').style.display = 'block';
+}
+
+function showSection(sectionId) {
+  const sections = document.querySelectorAll('.section');
+  sections.forEach(section => {
+    section.style.display = 'none';
+  });
+  document.getElementById(sectionId).style.display = 'block';
+}
+</script>
+
+</body>
+</html>
